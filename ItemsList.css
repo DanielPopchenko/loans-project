@@ -1,0 +1,56 @@
+.loans-container {
+  display: block;
+  width: 100%;
+  margin-left: 67px;
+}
+
+.loans-list {
+  list-style: none;
+  margin-top: 32px;
+}
+
+.loans-item {
+  border: 1px solid rgba(48, 50, 71, 0.1);
+  border-radius: 20px;
+
+  width: 685px;
+
+  margin-bottom: 32px;
+}
+
+.loans-item li{
+  list-style: none;
+}
+
+.loan-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+
+.loan-content h2{
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 30px;
+
+  margin-bottom: 16px;
+  padding: 32px 0px 0px 32px;
+}
+
+.loan-content p{
+  font-size: 20px;
+  line-height: 24px;
+
+  margin-bottom: 32px;
+  padding-left: 32px;
+
+  color: #303247;
+}
+
+.loan-btn {
+  margin-right: 32px;
+}
+
+
+
