@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import './styles/App.css';
-import './styles/ItemsList.css';
-import './styles/Item.css';
-import ItemsList from './components/ItemsList';
-import data from './current-loans.json';
-import { formatAmountToNumber } from './components/utils/index';
+import React, { useState, useEffect } from "react";
+import "./styles/App.css";
+import "./styles/ItemsList.css";
+import "./styles/Item.css";
+import ItemsList from "./components/ItemsList";
+import data from "../current-loans.json";
+import { formatAmountToNumber } from "./components/utils/index";
 
 function App() {
   const [loans, setLoans] = useState([]);
@@ -25,7 +25,8 @@ function App() {
       <hr></hr>
       <ItemsList setLoans={setLoans} loans={loans} />
       <p className="App-total">
-        Total amount available for investment: <span>${totalAmount.toFixed(3)}</span>
+        Total amount available for investment:{" "}
+        <span>${totalAmount.toFixed(3)}</span>
       </p>
     </div>
   );
