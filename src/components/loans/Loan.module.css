@@ -1,0 +1,48 @@
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+    border-radius: 20px;
+    border: 1px solid rgba(48, 50, 71, 0.1);
+    max-width: 700px;
+}
+
+.investedInItem {
+    border: 1px solid rgba(17, 200, 36, 0.721);
+}
+
+.item+.item {
+    margin-top: 32px;
+}
+
+.itemTitle {
+    font-size: 25px;
+    margin-bottom: 16px;
+}
+
+.item>p {
+    font-size: 20px;
+}
+
+.secondGroup>span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.isInvested {
+    color: #51a571;
+}
+
+.loanBtn {
+    cursor: pointer;
+    display: inline-flex;
+    padding: 16px 32px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 5px;
+    background: #f6e308;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+}
