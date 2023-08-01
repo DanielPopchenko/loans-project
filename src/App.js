@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from './components/container/Container';
 import Header from './components/header/Header';
 import LoansList from './components/loans/LoansList';
 import { formatAmountToNumber } from './utils/index';
-import { formatAmountToString } from './utils/index';
+
+import { LoanContext } from './context/LoanContext';
 
 import data from './current-loans.json';
 import './index.css';
@@ -11,8 +12,6 @@ import './index.css';
 function App() {
   const [loans, setLoans] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const [availableToInvest, setAvailableToInvest] = useState(10);
 
   useEffect(() => {
     setLoans(data.loans);
@@ -28,23 +27,25 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header />
-      <hr />
-      <Container>
-        <LoansList onModalOpen={onModalOpen} loans={loans} setLoans={setLoans} isModalOpen={isModalOpen}></LoansList>
-        <p
-          style={{
-            fontSize: '20px',
-            fontWeight: '600',
-            marginTop: 60,
-          }}
-        >
-          Total amount available for investment:
-          {<span style={{ marginLeft: 250 }}>${totalAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>}
-        </p>
-      </Container>
-    </div>
+    <LoanContext.Provider value={{ loans, setLoans }}>
+      <div className="App">
+        <Header />
+        <hr />
+        <Container>
+          <LoansList onModalOpen={onModalOpen} isModalOpen={isModalOpen}></LoansList>
+          <p
+            style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              marginTop: 60,
+            }}
+          >
+            Total amount available for investment:
+            {<span style={{ marginLeft: 250 }}>${totalAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>}
+          </p>
+        </Container>
+      </div>
+    </LoanContext.Provider>
   );
 }
 

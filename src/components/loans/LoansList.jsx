@@ -3,11 +3,17 @@ import { useState } from 'react';
 import Loan from './Loan';
 import Modal from '../modal/Modal';
 import { formatAmountToNumber, formatAmountToString } from '../../utils';
+import { useContext } from 'react';
+import { LoanContext } from '../../context/LoanContext';
 
-function LoansList({ onModalOpen, loans, setLoans, isModalOpen }) {
+function LoansList({ onModalOpen, isModalOpen }) {
   const [modalData, setModalData] = useState(null);
 
   console.log('modalData: ', modalData);
+
+  const { loans, setLoans } = useContext(LoanContext);
+
+  console.log();
 
   const handleInvest = (item, value) => {
     const newLoans = [...loans];
